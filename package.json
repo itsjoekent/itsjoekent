@@ -1,0 +1,29 @@
+{
+  "name": "itsjoekent",
+  "version": "1.0.0",
+  "description": "<!-- **itsjoekent/itsjoekent** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsjoekent/itsjoekent.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itsjoekent/itsjoekent/issues"
+  },
+  "homepage": "https://github.com/itsjoekent/itsjoekent#readme",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "cellular-automata-rule-parser": "^3.0.1",
+    "express": "^4.17.1",
+    "gifencoder": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
