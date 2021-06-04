@@ -98,7 +98,7 @@ function simulateGameBoard(board) {
   return updatedBoard;
 }
 
-app.get('/', async (req, res) => {
+async function run(req, res) {
   const board = createGameBoard();
   const simulations = [board];
   for (let index = 0; index < ITERATIONS - 1; index++) {
@@ -143,7 +143,10 @@ app.get('/', async (req, res) => {
 
   stream.on('end', () => res.end());
   stream.pipe(res);
-});
+}
+
+app.get('/', run);
+app.get('/game.gif', run);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
