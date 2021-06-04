@@ -1,6 +1,9 @@
 <p align="center">
   <img width="480" height="360" src="https://23efi6bmfm.us-east-1.awsapprunner.com/game.gif" alt="Game of life">
-  _This game of life regenerates every page refresh, try it out!_
+</p>
+
+<p align="center">
+  <i>This game of life regenerates every page refresh, try it out!</i>
 </p>
 
 ## Oh hi.
