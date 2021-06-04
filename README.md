@@ -1,4 +1,6 @@
-![Game Of Life](https://23efi6bmfm.us-east-1.awsapprunner.com/game.gif)
+<p align="center">
+  <img width="480" height="360" src="https://23efi6bmfm.us-east-1.awsapprunner.com/game.gif">
+</p>
 
 _This game of life regenerates every page refresh, try it out!_
 
