@@ -7,11 +7,11 @@ const { createCanvas } = require('canvas');
 const GIFEncoder = require('gifencoder');
 const parser = require('cellular-automata-rule-parser');
 
-const PIXEL_WIDTH = 640;
-const PIXEL_HEIGHT = 480;
+const PIXEL_WIDTH = 480;
+const PIXEL_HEIGHT = 360;
 
-const CELL_SIZE = 8;
-const ITERATIONS = 75;
+const CELL_SIZE = 12;
+const ITERATIONS = 45;
 const MAX_INITIAL_SPAWNS = Math.floor(PIXEL_WIDTH * .15);
 const MIN_INITIAL_SPAWNS = MAX_INITIAL_SPAWNS / 2;
 
@@ -117,7 +117,7 @@ app.get('/', async (req, res) => {
 
   encoder.start();
   encoder.setRepeat(0);
-  encoder.setDelay(100);
+  encoder.setDelay(200);
   encoder.setQuality(10);
 
   for (const board of simulations) {
