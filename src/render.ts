@@ -165,7 +165,6 @@ async function start(logger: Logger, startIndex: number, endIndex: number, index
       await makeGif(logger, index);
 
       const percentDone = Math.round(((index - startIndex) / (endIndex - startIndex)) * 100);
-      console.log(percentDone, index, startIndex, endIndex);
       if (percentDone % 5 === 0) {
         logger.info(`${percentDone}% done, ${index} of ${endIndex}`);
       }
