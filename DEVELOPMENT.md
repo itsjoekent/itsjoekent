@@ -16,6 +16,6 @@ $ npm start # Open http://localhost:5173
 
 ## How it works
 
-The Game of Life ("GOL") simulation under `src/simulation.ts` is compiled to Javascript that only depends on the [canvas api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). During local development, this script runs directly in your browser. For NodeJS environments, the canvas api is polyfilled with [node-canvas](https://github.com/Automattic/node-canvas).
+The Game of Life simulation and rendering can be found under `src/simulation.ts`, which is compiled to isomorphic Javascript that only depends on the [canvas api](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API). During local development, this script runs directly in your browser. In NodeJS environments, the canvas api is polyfilled with [node-canvas](https://github.com/Automattic/node-canvas).
 
 <!-- TODO, generating the gifs at scale -->
