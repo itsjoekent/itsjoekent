@@ -125,12 +125,13 @@ async function makeGif(logger: Logger, index: number, retries: number = 0): Prom
       Body: stream,
     }).promise();
   } else {
-    stream.pipe(fsClassic.createWriteStream(path.join(process.cwd(), 'tmp/gifs', `${index}.gif`)));
-
+    const writeStream = fsClassic.createWriteStream(path.join(process.cwd(), 'tmp/gifs', `${index}.gif`));
     streamPromise = new Promise<void>((resolve, reject) => {
-      stream.on('finish', resolve);
-      stream.on('error', reject);
-    });    
+      writeStream.on('finish', resolve);
+      writeStream.on('error', reject);
+    });
+
+    stream.pipe(writeStream);
   }
 
   encoder.start();
@@ -156,14 +157,15 @@ async function makeGif(logger: Logger, index: number, retries: number = 0): Prom
   return streamPromise;
 }
 
-async function start(logger: Logger, startIndex: number, endIndex: number, retries: number = 0): Promise<void> {
+async function start(logger: Logger, startIndex: number, endIndex: number, indexOverride: number = startIndex, retries: number = 0): Promise<void> {
   let index = 0;
 
   try {
-    for (index = startIndex; index <= endIndex; index++) {
+    for (index = indexOverride || startIndex; index <= endIndex; index++) {
       await makeGif(logger, index);
 
-      const percentDone = Math.round((index / endIndex) * 100);
+      const percentDone = Math.round(((index - startIndex) / (endIndex - startIndex)) * 100);
+      console.log(percentDone, index, startIndex, endIndex);
       if (percentDone % 5 === 0) {
         logger.info(`${percentDone}% done, ${index} of ${endIndex}`);
       }
@@ -177,7 +179,7 @@ async function start(logger: Logger, startIndex: number, endIndex: number, retri
 
     if (retries < 3) {
       logger.warn(`Attempting restart at index ${index}, retry #${retries + 1}`);
-      return start(logger, index, endIndex, retries + 1);
+      return start(logger, startIndex, endIndex, index, retries + 1);
     } else {
       logger.error(`Range ${startIndex} -> ${endIndex}, current index ${index}, cannot be restarted safely, aborting...`)
       return exit(1);
