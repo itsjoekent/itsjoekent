@@ -3,15 +3,19 @@
   "scripts": {
     "start": "vite",
     "render:compile": "tsc --project tsconfig.node.json",
-    "render": "npm run render:compile && node dist/render.js"
+    "render": "rm -rf ./tmp && npm run render:compile && node dist/render.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.1286.0",
     "canvas": "^2.11.0",
-    "gifencoder": "^2.0.1"
+    "gifencoder": "^2.0.1",
+    "md5": "^2.3.0"
   },
   "devDependencies": {
     "@types/gifencoder": "^2.0.1",
+    "@types/md5": "^2.3.2",
     "@types/node": "^18.11.18",
+    "dotenv": "^16.0.3",
     "pino": "^8.8.0",
     "pino-pretty": "^9.1.1",
     "ts-node": "^10.9.1",
