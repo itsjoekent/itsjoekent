@@ -1,0 +1,8 @@
+name = "itsjoekent-readme-gifs"
+main = "src/index.ts"
+compatibility_date = "2023-01-02"
+
+[[r2_buckets]]
+binding = 'GIF_BUCKET' # <~ valid JavaScript variable name
+bucket_name = 'itsjoekent-readme-gifs'
+preview_bucket_name = 'itsjoekent-readme-gifs'

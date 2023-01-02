@@ -45,3 +45,26 @@ For thread management, this project uses the [Node Cluster Module](https://nodej
 To guarantee that each simulation is indeed unique, the initial seed of the simulation data is md5 hashed and written to a `/tmp` folder. The initial simulation data will be regenerated until a unique dataset is created.
 
 The resulting gif data is piped to either the local filesystem or Cloudflare R2.
+
+## Returning Random Gifs
+
+This project leverages a basic [Cloudflare Worker](https://workers.cloudflare.com/) to randomly pick an index from 0 - 1000, and select the corresponding gif file from [R2 object storage](https://www.cloudflare.com/products/r2/).
+
+```ts
+const index = Math.floor(Math.random() * 1000);
+const object = await env.GIF_BUCKET.get(`${index}.gif`);
+
+if (!object) return new Response('not found', { status: 404, headers: { 'content-type': 'text/html; charset=UTF-8' } });
+const data = await object.arrayBuffer();
+```
+
+I have no idea how Github works behind the scenes when it hits this URL, but just in case it matters I also indicate I don't want this file to be cached,
+
+```ts
+return new Response(data, {
+  headers: {
+    'cache-control': 'max-age=0, no-cache, no-store, must-revalidate',
+    'content-type': 'image/gif',
+  },
+});
+```
