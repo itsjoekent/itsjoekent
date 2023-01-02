@@ -1,13 +1,7 @@
 <p align="center">
-  <img width="480" height="360" src="https://23efi6bmfm.us-east-1.awsapprunner.com/game.gif" alt="Game of life">
+  <img width="480" height="360" src="https://readme-gifs.joekent.nyc/" alt="Conway's Game of Life">
 </p>
 
-<p align="center">
-  <i>This game of life regenerates every page refresh, try it out!</i>
-</p>
+Oh hi! I’m Joe, a self taught coder working at [Arcadia](https://www.arcadia.com/) as a Senior Software Engineer. Every time you refresh my profile, you'll get a new rendering of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life). No seriously, there are thousand unique game of life simulations that you can randomly get!
 
-## Oh hi.
-
-I’m Joe, a self-taught software engineer based out of NYC. I enjoy using my tech & design skills to help progressives win.
-
-I am currently working at [Arcadia](https://arcadia.com) as a senior software engineer. You can find my past work documented on my [website](https://joekent.nyc/).
+If you want to see how this works under the hood, check out (itsjoekent/itsjoekent/DEVELOPMENT.md)[./DEVELOPMENT.md]

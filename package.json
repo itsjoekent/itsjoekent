@@ -1,29 +1,25 @@
 {
-  "name": "itsjoekent",
-  "version": "1.0.0",
-  "description": "<!-- **itsjoekent/itsjoekent** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.",
-  "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "vite",
+    "render:compile": "tsc --project tsconfig.node.json",
+    "render": "rm -rf ./tmp && npm run render:compile && node dist/render.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/itsjoekent/itsjoekent.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/itsjoekent/itsjoekent/issues"
-  },
-  "homepage": "https://github.com/itsjoekent/itsjoekent#readme",
   "dependencies": {
-    "canvas": "^2.8.0",
-    "cellular-automata-rule-parser": "^3.0.1",
-    "express": "^4.17.1",
-    "gifencoder": "^2.0.1"
+    "aws-sdk": "^2.1286.0",
+    "canvas": "^2.11.0",
+    "gifencoder": "^2.0.1",
+    "md5": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "@types/gifencoder": "^2.0.1",
+    "@types/md5": "^2.3.2",
+    "@types/node": "^18.11.18",
+    "dotenv": "^16.0.3",
+    "pino": "^8.8.0",
+    "pino-pretty": "^9.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3"
   }
 }
