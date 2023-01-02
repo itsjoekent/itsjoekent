@@ -29,7 +29,7 @@ const s3 = new aws.S3({
   signatureVersion: 'v4',
 });
 
-const TOTAL_SIMULATIONS = 10000;
+const TOTAL_SIMULATIONS = 1000;
 
 // When testing low simulation amounts...
 const totalCpus = Math.min(TOTAL_SIMULATIONS, os.cpus().length);

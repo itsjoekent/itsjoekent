@@ -16,13 +16,15 @@ $ npm start # Open http://localhost:5173
 # To render & output gifs to Cloudflare R2,
 # Follow the R2 auth token guide,
 # https://developers.cloudflare.com/r2/data-access/s3-api/tokens/
-
 $ cp .env.example .env
+
+# NOTE: You can run this command without an `.env` file,
+# it will just write the gifs to your local file system.
 $ npm run render
 
-# NOTE: By default, this will in fact try to render a 100k gifs. 
+# NOTE: By default, this will in fact try to render a lot of gifs. 
 # You might want to adjust the 'TOTAL_SIMULATIONS' variable in 'render.ts' 
-# to be a tad less crazy if you're just experimenting.
+# to be a tad less crazy if you're just experimenting for fun.
 
 # Also, this runs across all available cores on your machine, 
 # you might hear some fan noises.
